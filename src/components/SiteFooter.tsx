@@ -31,7 +31,7 @@ export function SiteFooter() {
             <a
               href="https://www.instagram.com/salumee.bellinzona/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-cream/20 px-4 py-2 text-xs text-cream/80 hover:border-accent hover:text-accent"
             >
               <Instagram className="h-3.5 w-3.5" />
@@ -40,7 +40,7 @@ export function SiteFooter() {
             <a
               href="https://www.threads.com/@salumee.bellinzona"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-cream/20 px-4 py-2 text-xs text-cream/80 hover:border-accent hover:text-accent"
             >
               Threads
@@ -48,7 +48,7 @@ export function SiteFooter() {
             <a
               href="https://www.local.ch/it/d/bellinzona/6500/macelleria/salumee-_wnwBOyAlGmtPtxbLmyxsQ"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-cream/20 px-4 py-2 text-xs text-cream/80 hover:border-accent hover:text-accent"
             >
               local.ch

@@ -60,7 +60,7 @@ function SpecialitaPage() {
             <a
               href="https://www.instagram.com/salumee.bellinzona/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background"
             >
               <Instagram className="h-4 w-4" />
@@ -69,7 +69,7 @@ function SpecialitaPage() {
             <a
               href="https://www.threads.com/@salumee.bellinzona"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground hover:bg-secondary"
             >
               Threads

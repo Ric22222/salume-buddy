@@ -166,7 +166,7 @@ function HomePage() {
               <a
                 href="https://www.instagram.com/salumee.bellinzona/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background hover:-translate-y-0.5 transition-transform"
               >
                 <Instagram className="h-4 w-4" />
