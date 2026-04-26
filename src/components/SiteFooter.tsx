@@ -1,0 +1,58 @@
+import { Link } from "@tanstack/react-router";
+
+export function SiteFooter() {
+  return (
+    <footer className="border-t border-border/60 bg-charcoal text-cream">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-4 lg:px-10">
+        <div className="lg:col-span-2">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cream text-charcoal font-display text-lg italic">
+              S
+            </div>
+            <div>
+              <div className="font-display text-xl">Macelleria Salumée</div>
+              <div className="text-[10px] uppercase tracking-[0.22em] text-cream/60">
+                Bottega artigiana dal cuore del Ticino
+              </div>
+            </div>
+          </div>
+          <p className="mt-6 max-w-md text-sm leading-relaxed text-cream/70">
+            Carni selezionate, salumi della casa e panini preparati al momento.
+            Una piccola macelleria-paninoteca a Claro, dove l'artigianalità è ancora
+            di casa.
+          </p>
+        </div>
+
+        <div>
+          <div className="text-xs uppercase tracking-[0.22em] text-cream/50">Bottega</div>
+          <ul className="mt-4 space-y-2 text-sm">
+            <li><Link to="/" className="hover:text-accent">Home</Link></li>
+            <li><Link to="/specialita" className="hover:text-accent">Specialità</Link></li>
+            <li><Link to="/chi-siamo" className="hover:text-accent">Chi siamo</Link></li>
+            <li><Link to="/contatti" className="hover:text-accent">Contatti</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <div className="text-xs uppercase tracking-[0.22em] text-cream/50">Contatti</div>
+          <ul className="mt-4 space-y-2 text-sm text-cream/80">
+            <li>Ala Ca Comunál 27</li>
+            <li>6702 Claro, TI</li>
+            <li>
+              <a href="tel:+41912908455" className="hover:text-accent">
+                091 290 84 55
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="border-t border-cream/10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-6 text-xs text-cream/50 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+          <div>© {new Date().getFullYear()} Macelleria Salumée. Tutti i diritti riservati.</div>
+          <div className="font-display italic">Dal banco al panino, con cura.</div>
+        </div>
+      </div>
+    </footer>
+  );
+}
