@@ -86,7 +86,7 @@ function ChiSiamoPage() {
               <a
                 href="https://www.instagram.com/salumee.bellinzona/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground hover:bg-secondary"
               >
                 <Instagram className="h-4 w-4" />
@@ -111,7 +111,7 @@ function ChiSiamoPage() {
             <a
               href="https://www.instagram.com/salumee.bellinzona/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="group rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary"
             >
               <Instagram className="h-5 w-5 text-primary" />
@@ -123,7 +123,7 @@ function ChiSiamoPage() {
             <a
               href="https://www.threads.com/@salumee.bellinzona"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="group rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary"
             >
               <div className="font-display text-xl italic text-primary">@</div>
@@ -135,7 +135,7 @@ function ChiSiamoPage() {
             <a
               href="https://www.local.ch/it/d/bellinzona/6500/macelleria/salumee-_wnwBOyAlGmtPtxbLmyxsQ"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="group rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary"
             >
               <MapPin className="h-5 w-5 text-primary" />

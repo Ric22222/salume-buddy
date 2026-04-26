@@ -66,7 +66,7 @@ function ContattiPage() {
               <a
                 href="https://maps.google.com/?q=Ala+Ca+Comunal+27,+6702+Claro"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary"
               >
                 <Navigation className="h-4 w-4" />
@@ -99,7 +99,7 @@ function ContattiPage() {
                 <a
                   href="https://www.instagram.com/salumee.bellinzona/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="text-foreground hover:text-primary"
                 >
                   Instagram · @salumee.bellinzona
@@ -107,7 +107,7 @@ function ContattiPage() {
                 <a
                   href="https://www.threads.com/@salumee.bellinzona"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="text-foreground hover:text-primary"
                 >
                   Threads · @salumee.bellinzona
@@ -115,7 +115,7 @@ function ContattiPage() {
                 <a
                   href="https://www.local.ch/it/d/bellinzona/6500/macelleria/salumee-_wnwBOyAlGmtPtxbLmyxsQ"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="text-foreground hover:text-primary"
                 >
                   local.ch
