@@ -1,29 +1,34 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
-import { ArrowRight, MapPin, Clock, Star } from "lucide-react";
-import heroImg from "@/assets/hero-macelleria.jpg";
-import salumiImg from "@/assets/salumi.jpg";
-import paninoImg from "@/assets/panino.jpg";
-import artigianoImg from "@/assets/artigiano.jpg";
+import { ArrowRight, MapPin, Clock, Star, Instagram, Phone } from "lucide-react";
+import heroImg from "@/assets/carne-banco.jpg";
+import tartareImg from "@/assets/tartare.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Macelleria Salumée — Bottega artigiana a Claro, Ticino" },
+      { title: "Macelleria Salumée — Macelleria e Paninoteca a Claro" },
       {
         name: "description",
         content:
-          "Macelleria-Paninoteca a Claro: carni selezionate, salumi della casa e panini preparati al momento. Tradizione ticinese dal 1985.",
+          "Macelleria Salumée a Claro, Ticino. Macelleria e paninoteca, prodotti freschi e curati. Ala Ca Comunál 27 · 091 290 84 55.",
       },
-      { property: "og:title", content: "Macelleria Salumée — Bottega artigiana a Claro" },
+      { property: "og:title", content: "Macelleria Salumée — Claro" },
       {
         property: "og:description",
-        content: "Carni selezionate, salumi della casa e panini d'autore nel cuore del Ticino.",
+        content: "Macelleria-Paninoteca a Claro, in Ticino.",
       },
     ],
   }),
   component: HomePage,
 });
+
+const reviews = [
+  { when: "2 mesi fa", text: "Buoni prodotti e molto pulito." },
+  { when: "4 mesi fa", text: null },
+  { when: "5 mesi fa", text: null },
+  { when: "5 mesi fa", text: null },
+];
 
 function HomePage() {
   return (
@@ -38,30 +43,30 @@ function HomePage() {
             </div>
 
             <h1 className="mt-6 font-display text-5xl leading-[1.02] text-foreground sm:text-6xl lg:text-7xl">
-              Il gusto della{" "}
-              <span className="italic text-primary">bottega</span>,
-              <br /> tagliato a mano.
+              Macelleria{" "}
+              <span className="italic text-primary">Salumée</span>,
+              <br /> a Claro.
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Da oltre trent'anni selezioniamo carni della regione, stagioniamo
-              i nostri salumi e prepariamo panini d'autore nel piccolo angolo
-              gastronomico di Ala Ca Comunál.
+              Macelleria e paninoteca in Ala Ca Comunál 27, 6702 Claro.
+              Passa in bottega dal martedì al sabato.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Link
-                to="/specialita"
+              <a
+                href="tel:+41912908455"
                 className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5"
               >
-                Scopri le specialità
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+                <Phone className="h-4 w-4" />
+                091 290 84 55
+              </a>
               <Link
                 to="/contatti"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-sm font-medium text-foreground hover:bg-secondary"
               >
-                Vieni a trovarci
+                Indicazioni e orari
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
@@ -83,22 +88,11 @@ function HomePage() {
               <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-3xl border border-primary/20 lg:block" />
               <img
                 src={heroImg}
-                alt="Salumi stagionati e coppa affettata sul tagliere della Macelleria Salumée"
+                alt="Banco di carne fresca preparata in Macelleria Salumée a Claro"
                 width={1600}
                 height={1100}
                 className="relative aspect-[4/5] w-full rounded-3xl object-cover shadow-2xl"
               />
-              <div className="absolute -bottom-6 -right-4 max-w-[260px] rounded-2xl border border-border bg-card p-5 shadow-xl lg:-right-6">
-                <div className="font-display text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                  Specialità della casa
-                </div>
-                <div className="mt-2 font-display text-xl text-foreground">
-                  Coppa stagionata
-                </div>
-                <div className="mt-1 text-sm text-muted-foreground">
-                  Affinata 90 giorni nelle nostre cantine.
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -119,7 +113,7 @@ function HomePage() {
               value: "Mar–Ven 8:30–12:30 / 14:30–18:30 · Sab 8–16",
             },
             {
-              icon: Star,
+              icon: Phone,
               label: "Telefono",
               value: "091 290 84 55",
             },
@@ -139,91 +133,97 @@ function HomePage() {
         </div>
       </section>
 
-      {/* SPECIALITÀ TEASER */}
+      {/* IMMAGINE + INTRO */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
-          <div className="lg:col-span-5">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-6">
+            <img
+              src={tartareImg}
+              alt="Tartare confezionata della Macelleria Salumée"
+              loading="lazy"
+              className="aspect-[4/5] w-full rounded-3xl object-cover shadow-xl"
+            />
+          </div>
+          <div className="lg:col-span-6">
             <div className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              — La nostra bottega
+              — La bottega
             </div>
             <h2 className="mt-4 font-display text-4xl leading-tight text-foreground sm:text-5xl">
-              Tre mestieri,
-              <br />
-              <span className="italic text-primary">una sola passione.</span>
+              Macelleria e{" "}
+              <span className="italic text-primary">paninoteca.</span>
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Macellai, salumieri e panettieri del gusto. Ogni mattina il banco
-              cambia volto secondo la stagione, ma una cosa resta sempre:
-              ingredienti veri, lavorati con le nostre mani.
+              Salumée è una piccola macelleria-paninoteca a Claro. Trovi il
+              banco carne, i prodotti del giorno e la possibilità di fermarti
+              per un panino.
             </p>
-            <Link
-              to="/specialita"
-              className="mt-8 inline-flex items-center gap-2 font-display text-sm uppercase tracking-[0.22em] text-primary"
-            >
-              Tutte le specialità
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              Per il dettaglio dei prodotti del giorno, segui i nostri canali
+              social: aggiorniamo regolarmente le novità della bottega.
+            </p>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
-            {[
-              {
-                img: salumiImg,
-                title: "Salumi della casa",
-                desc: "Stagionati nelle nostre cantine secondo ricette di famiglia.",
-              },
-              {
-                img: paninoImg,
-                title: "Paninoteca",
-                desc: "Pane fresco, salumi tagliati al momento. Veloce, ma artigianale.",
-              },
-              {
-                img: artigianoImg,
-                title: "Carni selezionate",
-                desc: "Filiera corta, allevamenti del Ticino e della regione.",
-              },
-              {
-                img: heroImg,
-                title: "Servizio su misura",
-                desc: "Tagli speciali, piatti per cene, taglieri per ogni occasione.",
-              },
-            ].map((card) => (
-              <article
-                key={card.title}
-                className="group overflow-hidden rounded-2xl border border-border bg-card"
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="https://www.instagram.com/salumee.bellinzona/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background hover:-translate-y-0.5 transition-transform"
               >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={card.img}
-                    alt={card.title}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-display text-xl text-foreground">{card.title}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground">{card.desc}</p>
-                </div>
-              </article>
-            ))}
+                <Instagram className="h-4 w-4" />
+                @salumee.bellinzona
+              </a>
+              <Link
+                to="/specialita"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground hover:bg-secondary"
+              >
+                La bottega
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* QUOTE / REVIEW */}
+      {/* REVIEWS */}
       <section className="bg-charcoal text-cream">
-        <div className="mx-auto max-w-4xl px-6 py-24 text-center lg:px-10">
-          <div className="flex justify-center gap-1">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="h-5 w-5 fill-accent text-accent" />
-            ))}
+        <div className="mx-auto max-w-5xl px-6 py-24 lg:px-10">
+          <div className="text-center">
+            <div className="text-xs uppercase tracking-[0.22em] text-cream/60">
+              — Recensioni Google
+            </div>
+            <div className="mt-4 flex justify-center gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+              ))}
+            </div>
+            <div className="mt-3 font-display text-2xl">5,0 · 4 recensioni</div>
           </div>
-          <blockquote className="mt-8 font-display text-3xl leading-tight italic text-cream sm:text-4xl">
-            “Una piccola macelleria con prodotti di altissima qualità.
-            I panini sono una delizia, sembra di mangiare a casa della nonna.”
-          </blockquote>
-          <div className="mt-6 text-sm uppercase tracking-[0.22em] text-cream/60">
-            — Recensione Google
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+            {reviews.map((r, i) => (
+              <div
+                key={i}
+                className="rounded-2xl border border-cream/10 bg-cream/5 p-6"
+              >
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, j) => (
+                    <Star key={j} className="h-3.5 w-3.5 fill-accent text-accent" />
+                  ))}
+                </div>
+                {r.text ? (
+                  <p className="mt-4 font-display text-lg italic leading-snug">
+                    “{r.text}”
+                  </p>
+                ) : (
+                  <p className="mt-4 text-sm italic text-cream/50">
+                    Recensione 5 stelle senza testo
+                  </p>
+                )}
+                <div className="mt-4 text-xs uppercase tracking-[0.22em] text-cream/50">
+                  {r.when}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -236,8 +236,7 @@ function HomePage() {
               Passa in bottega.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Ti aspettiamo a Claro, dal martedì al sabato. Per ordini speciali
-              o taglieri su misura, una telefonata basta.
+              Ti aspettiamo a Claro, dal martedì al sabato.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
@@ -245,6 +244,7 @@ function HomePage() {
               href="tel:+41912908455"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground"
             >
+              <Phone className="h-4 w-4" />
               091 290 84 55
             </a>
             <Link

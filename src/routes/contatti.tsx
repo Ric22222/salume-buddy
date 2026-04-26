@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
-import { MapPin, Phone, Clock, Navigation } from "lucide-react";
+import { MapPin, Phone, Clock, Navigation, Instagram } from "lucide-react";
 
 export const Route = createFileRoute("/contatti")({
   head: () => ({
@@ -86,9 +86,41 @@ function ContattiPage() {
                 091 290 84 55
               </a>
               <p className="mt-2 text-sm text-muted-foreground">
-                Per ordini speciali, taglieri o consigli: chiamaci, ti rispondiamo
-                con piacere.
+                Chiamaci durante gli orari di apertura.
               </p>
+            </div>
+
+            <div className="rounded-3xl border border-border bg-card p-8">
+              <div className="flex items-center gap-3">
+                <Instagram className="h-5 w-5 text-primary" />
+                <h2 className="font-display text-xl text-foreground">Social</h2>
+              </div>
+              <div className="mt-4 flex flex-col gap-2 text-sm">
+                <a
+                  href="https://www.instagram.com/salumee.bellinzona/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-foreground hover:text-primary"
+                >
+                  Instagram · @salumee.bellinzona
+                </a>
+                <a
+                  href="https://www.threads.com/@salumee.bellinzona"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-foreground hover:text-primary"
+                >
+                  Threads · @salumee.bellinzona
+                </a>
+                <a
+                  href="https://www.local.ch/it/d/bellinzona/6500/macelleria/salumee-_wnwBOyAlGmtPtxbLmyxsQ"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-foreground hover:text-primary"
+                >
+                  local.ch
+                </a>
+              </div>
             </div>
           </div>
 

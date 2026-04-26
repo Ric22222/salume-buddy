@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
-import artigianoImg from "@/assets/artigiano.jpg";
-import heroImg from "@/assets/hero-macelleria.jpg";
+import { Instagram, MapPin } from "lucide-react";
+import carneImg from "@/assets/carne-banco.jpg";
+import tartareImg from "@/assets/tartare.jpg";
 
 export const Route = createFileRoute("/chi-siamo")({
   head: () => ({
@@ -10,40 +11,17 @@ export const Route = createFileRoute("/chi-siamo")({
       {
         name: "description",
         content:
-          "La storia della Macelleria Salumée: una bottega artigiana a Claro, dove tradizione ticinese e cura delle materie prime si incontrano da oltre trent'anni.",
+          "Macelleria Salumée è una macelleria-paninoteca a Claro, in Ticino. Indirizzo, contatti e canali social ufficiali.",
       },
       { property: "og:title", content: "Chi siamo — Macelleria Salumée" },
       {
         property: "og:description",
-        content: "La storia di una piccola macelleria-paninoteca nel cuore del Ticino.",
+        content: "Macelleria-Paninoteca a Claro, Ticino.",
       },
     ],
   }),
   component: ChiSiamoPage,
 });
-
-const valori = [
-  {
-    n: "01",
-    t: "Materie prime locali",
-    d: "Lavoriamo con allevatori e produttori della regione. Sappiamo da dove viene ogni pezzo che vendiamo.",
-  },
-  {
-    n: "02",
-    t: "Lavorazione a mano",
-    d: "Salatura, legatura, taglio: ogni gesto è ancora artigianale, come ci hanno insegnato.",
-  },
-  {
-    n: "03",
-    t: "Tempo giusto",
-    d: "Le stagionature non si accorciano. Aspettare è parte della ricetta.",
-  },
-  {
-    n: "04",
-    t: "Rapporto diretto",
-    d: "Un consiglio sul taglio, una ricetta per la cena: la bottega è anche conversazione.",
-  },
-];
 
 function ChiSiamoPage() {
   return (
@@ -52,21 +30,20 @@ function ChiSiamoPage() {
         <div className="mx-auto grid max-w-7xl items-end gap-12 px-6 py-20 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-28">
           <div className="lg:col-span-7">
             <div className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              — La nostra storia
+              — Chi siamo
             </div>
             <h1 className="mt-4 font-display text-5xl leading-[1.02] text-foreground sm:text-6xl lg:text-7xl">
-              Una bottega,
+              Macelleria{" "}
+              <span className="italic text-primary">Salumée,</span>
               <br />
-              <span className="italic text-primary">una famiglia,</span>
-              <br />
-              tre generazioni.
+              a Claro.
             </h1>
           </div>
           <div className="lg:col-span-5">
             <p className="text-lg leading-relaxed text-muted-foreground">
-              Salumée nasce a Claro come piccola macelleria di paese. Negli anni
-              è cresciuta diventando anche paninoteca, ma il cuore è rimasto lo
-              stesso: la cura del prodotto e il rispetto per chi lo mangia.
+              Salumée è una macelleria-paninoteca con sede a Claro, in Ticino.
+              Trovi il banco carne, prodotti pronti e la possibilità di
+              fermarti per un panino.
             </p>
           </div>
         </div>
@@ -76,28 +53,45 @@ function ChiSiamoPage() {
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
             <img
-              src={artigianoImg}
-              alt="Le mani di un artigiano della Macelleria Salumée legano un salame con spago naturale"
+              src={carneImg}
+              alt="Carne fresca preparata in Macelleria Salumée"
               loading="lazy"
               className="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
             />
           </div>
           <div className="lg:col-span-6">
             <h2 className="font-display text-4xl text-foreground sm:text-5xl">
-              Il valore di un{" "}
-              <span className="italic text-primary">gesto antico.</span>
+              Dove ci{" "}
+              <span className="italic text-primary">trovi.</span>
             </h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                C'è un momento, in bottega, in cui le mani sanno meglio della
-                testa. È quando si lega un salame, si affina un coltello, si
-                sceglie il taglio giusto da consigliare al cliente.
+                Siamo in Ala Ca Comunál 27, 6702 Claro. Aperti dal martedì al
+                sabato.
               </p>
               <p>
-                Quel momento, per noi, vale più di qualsiasi tecnologia. È il
-                motivo per cui continuiamo a fare le cose come vent'anni fa:
-                con calma, con pazienza, con passione.
+                Per il dettaglio dei prodotti del giorno e per le novità della
+                bottega, il modo più semplice è seguirci su Instagram.
               </p>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/contatti"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
+              >
+                <MapPin className="h-4 w-4" />
+                Indicazioni
+              </Link>
+              <a
+                href="https://www.instagram.com/salumee.bellinzona/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground hover:bg-secondary"
+              >
+                <Instagram className="h-4 w-4" />
+                @salumee.bellinzona
+              </a>
             </div>
           </div>
         </div>
@@ -106,20 +100,50 @@ function ChiSiamoPage() {
       <section className="border-y border-border/60 bg-secondary/40">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <h2 className="max-w-2xl font-display text-4xl text-foreground sm:text-5xl">
-            I valori che ci{" "}
-            <span className="italic text-primary">guidano.</span>
+            Seguici{" "}
+            <span className="italic text-primary">online.</span>
           </h2>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {valori.map((v) => (
-              <div
-                key={v.n}
-                className="border-t border-border pt-6"
-              >
-                <div className="font-display text-2xl italic text-accent">{v.n}</div>
-                <h3 className="mt-3 font-display text-xl text-foreground">{v.t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{v.d}</p>
+          <p className="mt-4 max-w-xl text-muted-foreground">
+            I canali ufficiali di Macelleria Salumée:
+          </p>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            <a
+              href="https://www.instagram.com/salumee.bellinzona/"
+              target="_blank"
+              rel="noreferrer"
+              className="group rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary"
+            >
+              <Instagram className="h-5 w-5 text-primary" />
+              <div className="mt-4 font-display text-xl text-foreground">Instagram</div>
+              <div className="mt-1 text-sm text-muted-foreground">
+                @salumee.bellinzona
               </div>
-            ))}
+            </a>
+            <a
+              href="https://www.threads.com/@salumee.bellinzona"
+              target="_blank"
+              rel="noreferrer"
+              className="group rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary"
+            >
+              <div className="font-display text-xl italic text-primary">@</div>
+              <div className="mt-4 font-display text-xl text-foreground">Threads</div>
+              <div className="mt-1 text-sm text-muted-foreground">
+                @salumee.bellinzona
+              </div>
+            </a>
+            <a
+              href="https://www.local.ch/it/d/bellinzona/6500/macelleria/salumee-_wnwBOyAlGmtPtxbLmyxsQ"
+              target="_blank"
+              rel="noreferrer"
+              className="group rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary"
+            >
+              <MapPin className="h-5 w-5 text-primary" />
+              <div className="mt-4 font-display text-xl text-foreground">local.ch</div>
+              <div className="mt-1 text-sm text-muted-foreground">
+                Scheda dell'attività
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -128,11 +152,11 @@ function ChiSiamoPage() {
         <div className="lg:col-span-5">
           <h2 className="font-display text-4xl text-foreground sm:text-5xl">
             Vieni a{" "}
-            <span className="italic text-primary">conoscerci.</span>
+            <span className="italic text-primary">trovarci.</span>
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Il modo migliore per capire chi siamo è varcare la porta della
-            bottega. Ti aspettiamo a Claro.
+            Ti aspettiamo in bottega, a Claro. Per qualsiasi richiesta, una
+            telefonata basta.
           </p>
           <Link
             to="/contatti"
@@ -143,8 +167,8 @@ function ChiSiamoPage() {
         </div>
         <div className="lg:col-span-7">
           <img
-            src={heroImg}
-            alt="Banco di salumi della Macelleria Salumée"
+            src={tartareImg}
+            alt="Tartare confezionata della Macelleria Salumée"
             loading="lazy"
             className="aspect-[5/4] w-full rounded-3xl object-cover shadow-xl"
           />

@@ -1,22 +1,22 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
-import salumiImg from "@/assets/salumi.jpg";
-import paninoImg from "@/assets/panino.jpg";
-import artigianoImg from "@/assets/artigiano.jpg";
+import { Instagram, ArrowRight } from "lucide-react";
+import carneImg from "@/assets/carne-banco.jpg";
+import tartareImg from "@/assets/tartare.jpg";
 
 export const Route = createFileRoute("/specialita")({
   head: () => ({
     meta: [
-      { title: "Specialità — Macelleria Salumée Claro" },
+      { title: "La bottega — Macelleria Salumée Claro" },
       {
         name: "description",
         content:
-          "Salumi della casa, carni selezionate e panini d'autore: scopri le specialità della Macelleria Salumée a Claro.",
+          "Macelleria e paninoteca a Claro: banco carne, prodotti pronti e panini. Per il dettaglio del giorno seguici su Instagram @salumee.bellinzona.",
       },
-      { property: "og:title", content: "Specialità — Macelleria Salumée" },
+      { property: "og:title", content: "La bottega — Macelleria Salumée" },
       {
         property: "og:description",
-        content: "Salumi stagionati, carni e panini artigianali nel cuore del Ticino.",
+        content: "Macelleria-Paninoteca a Claro, Ticino.",
       },
     ],
   }),
@@ -25,40 +25,16 @@ export const Route = createFileRoute("/specialita")({
 
 const sections = [
   {
-    eyebrow: "Salumi",
-    title: "Stagionati nella nostra cantina",
-    img: salumiImg,
-    text: "Coppa, salametti, bresaola e mortadelle nostrane. Ricette di famiglia, tempi lunghi e materie prime selezionate. Ogni pezzo viene curato a mano, dalla salatura alla legatura con spago naturale.",
-    items: [
-      "Coppa stagionata 90 giorni",
-      "Salametti nostrani",
-      "Bresaola della Valle",
-      "Mortadella di fegato",
-    ],
+    eyebrow: "Banco carne",
+    title: "Carne fresca, preparata in bottega",
+    img: carneImg,
+    text: "Il banco propone tagli di carne freschi, preparati e pronti per la cottura. Per sapere cosa trovi oggi, passa in negozio o dai un'occhiata ai nostri canali social.",
   },
   {
-    eyebrow: "Paninoteca",
-    title: "Il pranzo, fatto bene",
-    img: paninoImg,
-    text: "Pane fresco ogni mattina, salumi tagliati al momento, verdure di stagione. La nostra paninoteca è la pausa pranzo che cerchi: veloce, ma con il rispetto dell'artigianato.",
-    items: [
-      "Panino con coppa & rucola",
-      "Bresaola, grana e limone",
-      "Salametto e cetriolini",
-      "Veggie di stagione",
-    ],
-  },
-  {
-    eyebrow: "Banco carni",
-    title: "Selezione del territorio",
-    img: artigianoImg,
-    text: "Lavoriamo con allevatori della regione che condividono il nostro modo di fare. Tagli classici, frollature attente e tutti i consigli per portare a casa il meglio.",
-    items: [
-      "Manzo ticinese frollato",
-      "Vitello di latte",
-      "Pollo ruspante",
-      "Tagli per grigliata e brasato",
-    ],
+    eyebrow: "Pronti & take away",
+    title: "Tartare e specialità del giorno",
+    img: tartareImg,
+    text: "Trovi anche prodotti pronti, come tartare confezionata, da portare a casa. La selezione cambia: per le novità del giorno, Instagram è il posto giusto.",
   },
 ];
 
@@ -68,16 +44,37 @@ function SpecialitaPage() {
       <section className="border-b border-border/60 bg-secondary/30">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <div className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-            — Le nostre specialità
+            — La bottega
           </div>
           <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[1.05] text-foreground sm:text-6xl lg:text-7xl">
-            Dal banco al piatto,{" "}
-            <span className="italic text-primary">solo cose buone.</span>
+            Macelleria{" "}
+            <span className="italic text-primary">e paninoteca.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-            Tre mondi diversi sotto lo stesso tetto: salumi della casa, carni
-            selezionate e una paninoteca per la pausa di mezzogiorno.
+            Da Salumée trovi il banco carne, prodotti pronti e la possibilità
+            di fermarti per un panino. La selezione cambia spesso: passa in
+            bottega o seguici online.
           </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="https://www.instagram.com/salumee.bellinzona/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background"
+            >
+              <Instagram className="h-4 w-4" />
+              @salumee.bellinzona
+            </a>
+            <a
+              href="https://www.threads.com/@salumee.bellinzona"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground hover:bg-secondary"
+            >
+              Threads
+            </a>
+          </div>
         </div>
       </section>
 
@@ -108,22 +105,34 @@ function SpecialitaPage() {
                 <p className="mt-5 text-base leading-relaxed text-muted-foreground">
                   {s.text}
                 </p>
-                <ul className="mt-8 space-y-3">
-                  {s.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center gap-3 border-b border-border/60 pb-3 text-sm text-foreground"
-                    >
-                      <span className="font-display text-xs italic text-accent">
-                        ✦
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-24 rounded-3xl border border-border bg-secondary/30 p-10 text-center lg:p-16">
+          <h2 className="font-display text-3xl text-foreground sm:text-4xl">
+            Vuoi sapere cosa c'è oggi?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+            Chiama in bottega o scrivici su Instagram: ti diciamo subito cosa
+            trovi al banco.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a
+              href="tel:+41912908455"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground"
+            >
+              091 290 84 55
+            </a>
+            <Link
+              to="/contatti"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-foreground hover:bg-secondary"
+            >
+              Indicazioni
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </PageShell>

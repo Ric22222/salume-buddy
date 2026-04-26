@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import logo from "@/assets/logo-salumee.png";
 
 const navItems = [
   { to: "/", label: "Bottega" },
@@ -16,9 +17,13 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <Link to="/" className="group flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-display text-lg italic">
-            S
-          </div>
+          <img
+            src={logo}
+            alt="Logo Macelleria Salumée Claro"
+            width={48}
+            height={48}
+            className="h-12 w-12 rounded-full object-cover"
+          />
           <div className="leading-tight">
             <div className="font-display text-lg font-semibold tracking-tight text-foreground">
               Salumée
