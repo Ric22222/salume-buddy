@@ -38,6 +38,13 @@ export const Route = createRootRoute({
       { name: "author", content: "Macelleria Salumée" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Macelleria Salumée — Bottega artigiana a Claro" },
+      { name: "twitter:title", content: "Macelleria Salumée — Bottega artigiana a Claro" },
+      { name: "description", content: "Salumi & Panini Hub is a website for a butcher shop and sandwich bar." },
+      { property: "og:description", content: "Salumi & Panini Hub is a website for a butcher shop and sandwich bar." },
+      { name: "twitter:description", content: "Salumi & Panini Hub is a website for a butcher shop and sandwich bar." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/aacb1128-6616-4d73-9f62-1bfbacb3130b/id-preview-170592c1--9a629a45-505e-4f68-8fc3-7a1eb2862bd2.lovable.app-1777225858110.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/aacb1128-6616-4d73-9f62-1bfbacb3130b/id-preview-170592c1--9a629a45-505e-4f68-8fc3-7a1eb2862bd2.lovable.app-1777225858110.png" },
     ],
     links: [
       {
