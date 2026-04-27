@@ -70,41 +70,42 @@
 
 :root {
   --radius: 0.5rem;
-  /* Cream paper background */
-  --background: oklch(0.972 0.012 80);
-  --foreground: oklch(0.18 0.02 30);
+  /* Carta da macelleria — bianco caldo leggermente più "vissuto" */
+  --background: oklch(0.965 0.014 78);
+  --foreground: oklch(0.14 0.012 30);
 
-  --card: oklch(0.985 0.008 80);
-  --card-foreground: oklch(0.18 0.02 30);
-  --popover: oklch(0.985 0.008 80);
-  --popover-foreground: oklch(0.18 0.02 30);
+  --card: oklch(0.98 0.01 80);
+  --card-foreground: oklch(0.14 0.012 30);
+  --popover: oklch(0.98 0.01 80);
+  --popover-foreground: oklch(0.14 0.012 30);
 
-  /* Bordeaux primary */
-  --primary: oklch(0.36 0.12 25);
-  --primary-foreground: oklch(0.972 0.012 80);
+  /* Rosso Salumée — più saturo, bandiera/insegna */
+  --primary: oklch(0.46 0.19 27);
+  --primary-foreground: oklch(0.98 0.01 80);
 
-  --secondary: oklch(0.93 0.018 75);
-  --secondary-foreground: oklch(0.22 0.03 30);
+  --secondary: oklch(0.91 0.022 70);
+  --secondary-foreground: oklch(0.18 0.02 30);
 
-  --muted: oklch(0.93 0.018 75);
-  --muted-foreground: oklch(0.45 0.025 40);
+  --muted: oklch(0.91 0.022 70);
+  --muted-foreground: oklch(0.42 0.022 38);
 
-  /* Ochre accent */
-  --accent: oklch(0.72 0.13 65);
-  --accent-foreground: oklch(0.18 0.02 30);
+  /* Accent — rosso scuro/bordeaux per i dettagli */
+  --accent: oklch(0.38 0.14 26);
+  --accent-foreground: oklch(0.98 0.01 80);
 
   --destructive: oklch(0.55 0.22 28);
   --destructive-foreground: oklch(0.98 0 0);
 
-  --border: oklch(0.88 0.02 70);
-  --input: oklch(0.88 0.02 70);
-  --ring: oklch(0.36 0.12 25);
+  /* Bordi più caldi, tipo legno chiaro */
+  --border: oklch(0.83 0.028 60);
+  --input: oklch(0.83 0.028 60);
+  --ring: oklch(0.46 0.19 27);
 
-  /* Brand semantics */
-  --bordeaux: oklch(0.36 0.12 25);
-  --cream: oklch(0.972 0.012 80);
-  --charcoal: oklch(0.18 0.02 30);
-  --ochre: oklch(0.72 0.13 65);
+  /* Brand semantics — bianco/rosso/nero Salumée */
+  --bordeaux: oklch(0.46 0.19 27);
+  --cream: oklch(0.965 0.014 78);
+  --charcoal: oklch(0.14 0.012 30);
+  --ochre: oklch(0.66 0.14 55);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -182,9 +183,54 @@
   .font-display {
     font-family: var(--font-display);
   }
+  /* Texture "carta da macellaio": piccoli puntini + fibra orizzontale */
   .grain {
     background-image:
-      radial-gradient(oklch(0.36 0.12 25 / 0.04) 1px, transparent 1px);
-    background-size: 3px 3px;
+      radial-gradient(oklch(0.14 0.012 30 / 0.05) 1px, transparent 1px),
+      repeating-linear-gradient(
+        0deg,
+        oklch(0.14 0.012 30 / 0.025) 0px,
+        oklch(0.14 0.012 30 / 0.025) 1px,
+        transparent 1px,
+        transparent 4px
+      );
+    background-size: 3px 3px, 100% 100%;
+  }
+  /* Sfondo carta da pacchi sottile, applicabile al body */
+  .paper {
+    background-color: var(--color-background);
+    background-image:
+      radial-gradient(oklch(0.14 0.012 30 / 0.035) 1px, transparent 1px),
+      radial-gradient(oklch(0.46 0.19 27 / 0.02) 1px, transparent 1px);
+    background-size: 4px 4px, 7px 7px;
+    background-position: 0 0, 2px 2px;
+  }
+  /* Divisore "corda da bottega" */
+  .rope-divider {
+    height: 6px;
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--color-primary) 0 8px,
+      transparent 8px 14px
+    );
+    opacity: 0.55;
+  }
+  /* Etichetta tipo cartellino da macelleria */
+  .butcher-tag {
+    position: relative;
+    background: var(--color-cream);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+  .butcher-tag::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: var(--color-primary);
+    transform: translateY(-50%);
   }
 }
