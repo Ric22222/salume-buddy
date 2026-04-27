@@ -37,8 +37,8 @@ function HomePage() {
       <section className="relative overflow-hidden">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-20 pt-12 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:pt-20">
           <div className="lg:col-span-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            <div className="butcher-tag inline-flex items-center gap-2 rounded-sm px-4 py-1.5 pl-5 text-[11px] font-semibold uppercase tracking-[0.28em]">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               Macelleria · Paninoteca · Claro
             </div>
 
@@ -85,21 +85,30 @@ function HomePage() {
 
           <div className="relative lg:col-span-6">
             <div className="relative">
-              <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-3xl border border-primary/20 lg:block" />
+              <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-3xl border-2 border-primary/30 lg:block" />
               <img
                 src={heroImg}
                 alt="Banco di carne fresca preparata in Macelleria Salumée a Claro"
                 width={1600}
                 height={1100}
-                className="relative aspect-[4/5] w-full rounded-3xl object-cover shadow-2xl"
+                className="relative aspect-[4/5] w-full rounded-3xl object-cover shadow-2xl ring-1 ring-charcoal/10"
               />
+              {/* Sigillo "dal 1900" stile timbro da bottega */}
+              <div className="absolute -bottom-5 -right-5 hidden h-28 w-28 rotate-[-8deg] items-center justify-center rounded-full border-2 border-primary bg-cream text-center font-display text-primary shadow-xl sm:flex">
+                <div className="leading-tight">
+                  <div className="text-[9px] uppercase tracking-[0.25em]">Bottega</div>
+                  <div className="text-xl italic">Salumée</div>
+                  <div className="text-[9px] uppercase tracking-[0.25em]">Claro · TI</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* QUICK INFO STRIP */}
-      <section className="border-y border-border/60 bg-secondary/40">
+      <div className="rope-divider" />
+      <section className="border-y border-border/60 bg-secondary/40 grain">
         <div className="mx-auto grid max-w-7xl divide-y divide-border/60 px-6 lg:grid-cols-3 lg:divide-x lg:divide-y-0 lg:px-10">
           {[
             {
