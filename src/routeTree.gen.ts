@@ -9,105 +9,27 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SpecialitaRouteImport } from './routes/specialita'
-import { Route as ContattiRouteImport } from './routes/contatti'
-import { Route as ChiSiamoRouteImport } from './routes/chi-siamo'
-import { Route as IndexRouteImport } from './routes/index'
 
-const SpecialitaRoute = SpecialitaRouteImport.update({
-  id: '/specialita',
-  path: '/specialita',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContattiRoute = ContattiRouteImport.update({
-  id: '/contatti',
-  path: '/contatti',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ChiSiamoRoute = ChiSiamoRouteImport.update({
-  id: '/chi-siamo',
-  path: '/chi-siamo',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-
-export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/chi-siamo': typeof ChiSiamoRoute
-  '/contatti': typeof ContattiRoute
-  '/specialita': typeof SpecialitaRoute
-}
-export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/chi-siamo': typeof ChiSiamoRoute
-  '/contatti': typeof ContattiRoute
-  '/specialita': typeof SpecialitaRoute
-}
+export interface FileRoutesByFullPath {}
+export interface FileRoutesByTo {}
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/chi-siamo': typeof ChiSiamoRoute
-  '/contatti': typeof ContattiRoute
-  '/specialita': typeof SpecialitaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/chi-siamo' | '/contatti' | '/specialita'
+  fullPaths: never
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chi-siamo' | '/contatti' | '/specialita'
-  id: '__root__' | '/' | '/chi-siamo' | '/contatti' | '/specialita'
+  to: never
+  id: '__root__'
   fileRoutesById: FileRoutesById
 }
-export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  ChiSiamoRoute: typeof ChiSiamoRoute
-  ContattiRoute: typeof ContattiRoute
-  SpecialitaRoute: typeof SpecialitaRoute
-}
+export interface RootRouteChildren {}
 
 declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/specialita': {
-      id: '/specialita'
-      path: '/specialita'
-      fullPath: '/specialita'
-      preLoaderRoute: typeof SpecialitaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contatti': {
-      id: '/contatti'
-      path: '/contatti'
-      fullPath: '/contatti'
-      preLoaderRoute: typeof ContattiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/chi-siamo': {
-      id: '/chi-siamo'
-      path: '/chi-siamo'
-      fullPath: '/chi-siamo'
-      preLoaderRoute: typeof ChiSiamoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-  }
+  interface FileRoutesByPath {}
 }
 
-const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  ChiSiamoRoute: ChiSiamoRoute,
-  ContattiRoute: ContattiRoute,
-  SpecialitaRoute: SpecialitaRoute,
-}
+const rootRouteChildren: RootRouteChildren = {}
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
