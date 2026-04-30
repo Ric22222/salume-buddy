@@ -54,8 +54,23 @@ function ChooserPage() {
         </div>
       </header>
 
-      {/* Center title */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 px-6 text-center">
+      {/* Mobile title — sits in document flow above the split, no overlap */}
+      <div className="relative z-20 px-6 pb-6 pt-24 text-center md:hidden">
+        <div className="butcher-tag mx-auto inline-flex items-center gap-2 rounded-sm bg-cream px-4 py-1.5 pl-5 text-[10px] font-semibold uppercase tracking-[0.28em]">
+          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+          Scegli la tua bottega
+        </div>
+        <h1 className="mt-4 font-display text-4xl leading-[0.95] text-cream drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
+          Due <span className="italic text-ochre">botteghe</span>,
+          <br /> una <span className="italic text-primary">passione</span>.
+        </h1>
+        <p className="mt-4 text-[11px] uppercase tracking-[0.32em] text-cream/70">
+          Claro · Bellinzona
+        </p>
+      </div>
+
+      {/* Desktop center title — only when split is side-by-side */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 px-6 text-center md:block">
         <div className="butcher-tag mx-auto inline-flex items-center gap-2 rounded-sm bg-cream px-4 py-1.5 pl-5 text-[11px] font-semibold uppercase tracking-[0.28em]">
           <span className="h-1.5 w-1.5 rounded-full bg-primary" />
           Scegli la tua bottega
