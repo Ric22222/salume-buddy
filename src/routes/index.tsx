@@ -1,270 +1,164 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PageShell } from "@/components/PageShell";
-import { ArrowRight, MapPin, Clock, Star, Instagram, Phone } from "lucide-react";
-import heroImg from "@/assets/carne-banco.jpg";
-import tartareImg from "@/assets/tartare.jpg";
+import { ArrowRight, MapPin, Star } from "lucide-react";
+import claroImg from "@/assets/claro-paese.jpg";
+import bellinzonaImg from "@/assets/bellinzona-castello.jpg";
+import logo from "@/assets/logo-salumee.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Macelleria Salumée — Macelleria e Paninoteca a Claro" },
+      { title: "Salumée — Macellerie a Claro e Bellinzona" },
       {
         name: "description",
         content:
-          "Macelleria Salumée a Claro, Ticino. Macelleria e paninoteca, prodotti freschi e curati. Ala Ca Comunál 27 · 091 290 84 55.",
+          "Salumée, due botteghe in Ticino: Macelleria-Paninoteca a Claro e Salumeria-Paninoteca a Bellinzona. Scegli la sede e scopri di più.",
       },
-      { property: "og:title", content: "Macelleria Salumée — Claro" },
+      { property: "og:title", content: "Salumée — Claro & Bellinzona" },
       {
         property: "og:description",
-        content: "Macelleria-Paninoteca a Claro, in Ticino.",
+        content: "Due botteghe, una passione. Carne, salumi e panini in Ticino.",
       },
     ],
   }),
-  component: HomePage,
+  component: ChooserPage,
 });
 
-const reviews = [
-  { when: "2 mesi fa", text: "Buoni prodotti e molto pulito." },
-  { when: "4 mesi fa", text: null },
-  { when: "5 mesi fa", text: null },
-  { when: "5 mesi fa", text: null },
-];
-
-function HomePage() {
+function ChooserPage() {
   return (
-    <PageShell>
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-20 pt-12 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:pt-20">
-          <div className="lg:col-span-6">
-            <div className="butcher-tag inline-flex items-center gap-2 rounded-sm px-4 py-1.5 pl-5 text-[11px] font-semibold uppercase tracking-[0.28em]">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Macelleria · Paninoteca · Claro
-            </div>
-
-            <h1 className="mt-6 font-display text-5xl leading-[1.02] text-foreground sm:text-6xl lg:text-7xl">
-              Macelleria{" "}
-              <span className="italic text-primary">Salumée</span>,
-              <br /> a Claro.
-            </h1>
-
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Macelleria e paninoteca in Ala Ca Comunál 27, 6702 Claro.
-              Passa in bottega dal martedì al sabato.
-            </p>
-
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href="tel:+41912908455"
-                className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5"
-              >
-                <Phone className="h-4 w-4" />
-                091 290 84 55
-              </a>
-              <Link
-                to="/contatti"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-sm font-medium text-foreground hover:bg-secondary"
-              >
-                Indicazioni e orari
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-
-            <div className="mt-12 flex items-center gap-6 border-t border-border/60 pt-6">
-              <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-accent text-accent" />
-                ))}
-              </div>
-              <div className="text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">5,0</span> · 4
-                recensioni Google
-              </div>
-            </div>
-          </div>
-
-          <div className="relative lg:col-span-6">
-            <div className="relative">
-              <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-3xl border-2 border-primary/30 lg:block" />
-              <img
-                src={heroImg}
-                alt="Banco di carne fresca preparata in Macelleria Salumée a Claro"
-                width={1600}
-                height={1100}
-                className="relative aspect-[4/5] w-full rounded-3xl object-cover shadow-2xl ring-1 ring-charcoal/10"
-              />
-              {/* Sigillo "dal 1900" stile timbro da bottega */}
-              <div className="absolute -bottom-5 -right-5 hidden h-28 w-28 rotate-[-8deg] items-center justify-center rounded-full border-2 border-primary bg-cream text-center font-display text-primary shadow-xl sm:flex">
-                <div className="leading-tight">
-                  <div className="text-[9px] uppercase tracking-[0.25em]">Bottega</div>
-                  <div className="text-xl italic">Salumée</div>
-                  <div className="text-[9px] uppercase tracking-[0.25em]">Claro · TI</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* QUICK INFO STRIP */}
-      <div className="rope-divider" />
-      <section className="border-y border-border/60 bg-secondary/40 grain">
-        <div className="mx-auto grid max-w-7xl divide-y divide-border/60 px-6 lg:grid-cols-3 lg:divide-x lg:divide-y-0 lg:px-10">
-          {[
-            {
-              icon: MapPin,
-              label: "Dove siamo",
-              value: "Ala Ca Comunál 27, 6702 Claro",
-            },
-            {
-              icon: Clock,
-              label: "Orari",
-              value: "Mar–Ven 8:30–12:30 / 14:30–18:30 · Sab 8–16",
-            },
-            {
-              icon: Phone,
-              label: "Telefono",
-              value: "091 290 84 55",
-            },
-          ].map(({ icon: Icon, label, value }) => (
-            <div key={label} className="flex items-start gap-4 py-6 lg:px-8">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-background">
-                <Icon className="h-4 w-4 text-primary" />
-              </div>
-              <div>
-                <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                  {label}
-                </div>
-                <div className="mt-1 text-sm font-medium text-foreground">{value}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* IMMAGINE + INTRO */}
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-6">
+    <div className="relative min-h-screen w-full overflow-hidden bg-charcoal text-cream">
+      {/* Top brand bar */}
+      <header className="absolute inset-x-0 top-0 z-30">
+        <div className="tricolor-bar opacity-80" />
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+          <div className="flex items-center gap-3">
             <img
-              src={tartareImg}
-              alt="Tartare confezionata della Macelleria Salumée"
-              loading="lazy"
-              className="aspect-[4/5] w-full rounded-3xl object-cover shadow-xl"
+              src={logo}
+              alt="Logo Salumée"
+              width={44}
+              height={44}
+              className="h-11 w-11 rounded-full bg-cream object-cover ring-2 ring-cream/30"
             />
-          </div>
-          <div className="lg:col-span-6">
-            <div className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              — La bottega
-            </div>
-            <h2 className="mt-4 font-display text-4xl leading-tight text-foreground sm:text-5xl">
-              Macelleria e{" "}
-              <span className="italic text-primary">paninoteca.</span>
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Salumée è una piccola macelleria-paninoteca a Claro. Trovi il
-              banco carne, i prodotti del giorno e la possibilità di fermarti
-              per un panino.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Per il dettaglio dei prodotti del giorno, segui i nostri canali
-              social: aggiorniamo regolarmente le novità della bottega.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="https://www.instagram.com/salumee.bellinzona/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background hover:-translate-y-0.5 transition-transform"
-              >
-                <Instagram className="h-4 w-4" />
-                @salumee.bellinzona
-              </a>
-              <Link
-                to="/specialita"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground hover:bg-secondary"
-              >
-                La bottega
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* REVIEWS */}
-      <section className="bg-charcoal text-cream">
-        <div className="mx-auto max-w-5xl px-6 py-24 lg:px-10">
-          <div className="text-center">
-            <div className="text-xs uppercase tracking-[0.22em] text-cream/60">
-              — Recensioni Google
-            </div>
-            <div className="mt-4 flex justify-center gap-1">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-accent text-accent" />
-              ))}
-            </div>
-            <div className="mt-3 font-display text-2xl">5,0 · 4 recensioni</div>
-          </div>
-
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
-            {reviews.map((r, i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-cream/10 bg-cream/5 p-6"
-              >
-                <div className="flex items-center gap-1">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <Star key={j} className="h-3.5 w-3.5 fill-accent text-accent" />
-                  ))}
-                </div>
-                {r.text ? (
-                  <p className="mt-4 font-display text-lg italic leading-snug">
-                    “{r.text}”
-                  </p>
-                ) : (
-                  <p className="mt-4 text-sm italic text-cream/50">
-                    Recensione 5 stelle senza testo
-                  </p>
-                )}
-                <div className="mt-4 text-xs uppercase tracking-[0.22em] text-cream/50">
-                  {r.when}
-                </div>
+            <div className="leading-tight">
+              <div className="font-display text-xl text-cream">Salumée</div>
+              <div className="text-[10px] uppercase tracking-[0.28em] text-cream/60">
+                Bottega · Ticino
               </div>
-            ))}
+            </div>
+          </div>
+          <div className="hidden items-center gap-2 md:flex">
+            <Star className="h-4 w-4 fill-ochre text-ochre" />
+            <span className="text-xs uppercase tracking-[0.22em] text-cream/70">
+              Dal 1900 · Tradizione di famiglia
+            </span>
           </div>
         </div>
-      </section>
+      </header>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-        <div className="grid items-center gap-10 rounded-3xl border border-border bg-card p-10 shadow-sm lg:grid-cols-2 lg:p-16">
-          <div>
-            <h2 className="font-display text-4xl text-foreground sm:text-5xl">
-              Passa in bottega.
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Ti aspettiamo a Claro, dal martedì al sabato.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3 lg:justify-end">
-            <a
-              href="tel:+41912908455"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground"
-            >
-              <Phone className="h-4 w-4" />
-              091 290 84 55
-            </a>
-            <Link
-              to="/contatti"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3.5 text-sm font-medium text-foreground hover:bg-secondary"
-            >
-              Indicazioni e orari
-            </Link>
-          </div>
+      {/* Center title */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 px-6 text-center">
+        <div className="butcher-tag mx-auto inline-flex items-center gap-2 rounded-sm bg-cream px-4 py-1.5 pl-5 text-[11px] font-semibold uppercase tracking-[0.28em]">
+          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+          Scegli la tua bottega
         </div>
-      </section>
-    </PageShell>
+        <h1 className="mt-5 font-display text-5xl leading-[0.95] text-cream drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] sm:text-7xl lg:text-8xl">
+          Due <span className="italic text-ochre">botteghe</span>,
+          <br /> una <span className="italic text-primary">passione</span>.
+        </h1>
+        <div className="mx-auto mt-6 h-px w-32 bg-cream/40" />
+        <p className="mt-6 text-sm uppercase tracking-[0.32em] text-cream/70 sm:text-base">
+          Claro · Bellinzona
+        </p>
+      </div>
+
+      {/* Split */}
+      <div className="grid min-h-screen grid-cols-1 md:grid-cols-2">
+        {/* CLARO */}
+        <Link
+          to="/claro"
+          className="group relative flex min-h-[60vh] items-end overflow-hidden md:min-h-screen"
+        >
+          <img
+            src={claroImg}
+            alt="Claro, Ticino"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/30 transition-opacity group-hover:from-primary/80 group-hover:via-charcoal/60" />
+          <div className="absolute inset-0 grain opacity-40 mix-blend-overlay" />
+
+          {/* Vertical label */}
+          <div className="absolute left-6 top-1/2 hidden -translate-y-1/2 -rotate-90 text-[10px] uppercase tracking-[0.4em] text-cream/60 md:block">
+            Sede · 01
+          </div>
+
+          <div className="relative z-10 w-full p-8 md:p-14 lg:p-20">
+            <div className="mb-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.32em] text-cream/70">
+              <MapPin className="h-3 w-3" /> 6702 · Ticino
+            </div>
+            <div className="font-display text-[10vw] leading-[0.85] text-cream sm:text-[80px] md:text-[88px] lg:text-[120px]">
+              Claro
+            </div>
+            <div className="mt-4 max-w-sm text-base text-cream/80">
+              <span className="italic text-ochre">Macelleria</span> &
+              Paninoteca. Banco carne, panini d'autore, prodotti del giorno.
+            </div>
+            <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-cream/40 bg-cream/10 px-6 py-3 text-sm font-medium uppercase tracking-[0.22em] text-cream backdrop-blur-sm transition-all group-hover:bg-cream group-hover:text-primary">
+              Entra in bottega
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </div>
+          </div>
+        </Link>
+
+        {/* BELLINZONA */}
+        <Link
+          to="/bellinzona"
+          className="group relative flex min-h-[60vh] items-end overflow-hidden border-l border-cream/10 md:min-h-screen"
+        >
+          <img
+            src={bellinzonaImg}
+            alt="Bellinzona, Ticino"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/30 transition-opacity group-hover:from-primary/80 group-hover:via-charcoal/60" />
+          <div className="absolute inset-0 grain opacity-40 mix-blend-overlay" />
+
+          <div className="absolute right-6 top-1/2 hidden -translate-y-1/2 rotate-90 text-[10px] uppercase tracking-[0.4em] text-cream/60 md:block">
+            Sede · 02
+          </div>
+
+          <div className="relative z-10 w-full p-8 md:p-14 lg:p-20">
+            <div className="mb-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.32em] text-cream/70">
+              <MapPin className="h-3 w-3" /> 6500 · Ticino
+            </div>
+            <div className="font-display text-[10vw] leading-[0.85] text-cream sm:text-[80px] md:text-[88px] lg:text-[120px]">
+              Bellinzona
+            </div>
+            <div className="mt-4 max-w-sm text-base text-cream/80">
+              <span className="italic text-ochre">Salumeria</span> &
+              Paninoteca. Focacce ripiene, salumi italiani, prelibatezze.
+            </div>
+            <div className="mt-4 flex items-center gap-1 text-sm text-cream/70">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-3.5 w-3.5 fill-ochre text-ochre" />
+              ))}
+              <span className="ml-2 text-xs uppercase tracking-[0.2em]">
+                4.9 · 64 recensioni Google
+              </span>
+            </div>
+            <div className="mt-6 inline-flex items-center gap-3 rounded-full border border-cream/40 bg-cream/10 px-6 py-3 text-sm font-medium uppercase tracking-[0.22em] text-cream backdrop-blur-sm transition-all group-hover:bg-cream group-hover:text-primary">
+              Entra in bottega
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </div>
+          </div>
+        </Link>
+      </div>
+
+      {/* Bottom strip */}
+      <div className="absolute inset-x-0 bottom-0 z-20">
+        <div className="apron-stripes-thin h-2 opacity-80" />
+        <div className="bg-charcoal/90 px-6 py-4 text-center text-[10px] uppercase tracking-[0.32em] text-cream/60 backdrop-blur-sm">
+          Carne · Salumi · Panini · Tradizione
+        </div>
+      </div>
+    </div>
   );
 }

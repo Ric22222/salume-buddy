@@ -9,24 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SpecialitaRouteImport } from './routes/specialita'
-import { Route as ContattiRouteImport } from './routes/contatti'
-import { Route as ChiSiamoRouteImport } from './routes/chi-siamo'
+import { Route as ClaroRouteImport } from './routes/claro'
+import { Route as BellinzonaRouteImport } from './routes/bellinzona'
 import { Route as IndexRouteImport } from './routes/index'
 
-const SpecialitaRoute = SpecialitaRouteImport.update({
-  id: '/specialita',
-  path: '/specialita',
+const ClaroRoute = ClaroRouteImport.update({
+  id: '/claro',
+  path: '/claro',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ContattiRoute = ContattiRouteImport.update({
-  id: '/contatti',
-  path: '/contatti',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ChiSiamoRoute = ChiSiamoRouteImport.update({
-  id: '/chi-siamo',
-  path: '/chi-siamo',
+const BellinzonaRoute = BellinzonaRouteImport.update({
+  id: '/bellinzona',
+  path: '/bellinzona',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,59 +31,48 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/chi-siamo': typeof ChiSiamoRoute
-  '/contatti': typeof ContattiRoute
-  '/specialita': typeof SpecialitaRoute
+  '/bellinzona': typeof BellinzonaRoute
+  '/claro': typeof ClaroRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/chi-siamo': typeof ChiSiamoRoute
-  '/contatti': typeof ContattiRoute
-  '/specialita': typeof SpecialitaRoute
+  '/bellinzona': typeof BellinzonaRoute
+  '/claro': typeof ClaroRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/chi-siamo': typeof ChiSiamoRoute
-  '/contatti': typeof ContattiRoute
-  '/specialita': typeof SpecialitaRoute
+  '/bellinzona': typeof BellinzonaRoute
+  '/claro': typeof ClaroRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/chi-siamo' | '/contatti' | '/specialita'
+  fullPaths: '/' | '/bellinzona' | '/claro'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chi-siamo' | '/contatti' | '/specialita'
-  id: '__root__' | '/' | '/chi-siamo' | '/contatti' | '/specialita'
+  to: '/' | '/bellinzona' | '/claro'
+  id: '__root__' | '/' | '/bellinzona' | '/claro'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ChiSiamoRoute: typeof ChiSiamoRoute
-  ContattiRoute: typeof ContattiRoute
-  SpecialitaRoute: typeof SpecialitaRoute
+  BellinzonaRoute: typeof BellinzonaRoute
+  ClaroRoute: typeof ClaroRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/specialita': {
-      id: '/specialita'
-      path: '/specialita'
-      fullPath: '/specialita'
-      preLoaderRoute: typeof SpecialitaRouteImport
+    '/claro': {
+      id: '/claro'
+      path: '/claro'
+      fullPath: '/claro'
+      preLoaderRoute: typeof ClaroRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/contatti': {
-      id: '/contatti'
-      path: '/contatti'
-      fullPath: '/contatti'
-      preLoaderRoute: typeof ContattiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/chi-siamo': {
-      id: '/chi-siamo'
-      path: '/chi-siamo'
-      fullPath: '/chi-siamo'
-      preLoaderRoute: typeof ChiSiamoRouteImport
+    '/bellinzona': {
+      id: '/bellinzona'
+      path: '/bellinzona'
+      fullPath: '/bellinzona'
+      preLoaderRoute: typeof BellinzonaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -104,9 +87,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ChiSiamoRoute: ChiSiamoRoute,
-  ContattiRoute: ContattiRoute,
-  SpecialitaRoute: SpecialitaRoute,
+  BellinzonaRoute: BellinzonaRoute,
+  ClaroRoute: ClaroRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
