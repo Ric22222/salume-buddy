@@ -9,27 +9,87 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ClaroRouteImport } from './routes/claro'
+import { Route as BellinzonaRouteImport } from './routes/bellinzona'
+import { Route as IndexRouteImport } from './routes/index'
 
-export interface FileRoutesByFullPath {}
-export interface FileRoutesByTo {}
+const ClaroRoute = ClaroRouteImport.update({
+  id: '/claro',
+  path: '/claro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BellinzonaRoute = BellinzonaRouteImport.update({
+  id: '/bellinzona',
+  path: '/bellinzona',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
+  '/bellinzona': typeof BellinzonaRoute
+  '/claro': typeof ClaroRoute
+}
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/bellinzona': typeof BellinzonaRoute
+  '/claro': typeof ClaroRoute
+}
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+  '/bellinzona': typeof BellinzonaRoute
+  '/claro': typeof ClaroRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: never
+  fullPaths: '/' | '/bellinzona' | '/claro'
   fileRoutesByTo: FileRoutesByTo
-  to: never
-  id: '__root__'
+  to: '/' | '/bellinzona' | '/claro'
+  id: '__root__' | '/' | '/bellinzona' | '/claro'
   fileRoutesById: FileRoutesById
 }
-export interface RootRouteChildren {}
-
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {}
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+  BellinzonaRoute: typeof BellinzonaRoute
+  ClaroRoute: typeof ClaroRoute
 }
 
-const rootRouteChildren: RootRouteChildren = {}
+declare module '@tanstack/react-router' {
+  interface FileRoutesByPath {
+    '/claro': {
+      id: '/claro'
+      path: '/claro'
+      fullPath: '/claro'
+      preLoaderRoute: typeof ClaroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bellinzona': {
+      id: '/bellinzona'
+      path: '/bellinzona'
+      fullPath: '/bellinzona'
+      preLoaderRoute: typeof BellinzonaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+  }
+}
+
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  BellinzonaRoute: BellinzonaRoute,
+  ClaroRoute: ClaroRoute,
+}
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
